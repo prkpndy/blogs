@@ -27,13 +27,13 @@ const getBlogsSchema = {
           items: {
             type: "object",
             properties: {
-              id: { type: "integer" },
+              blogId: { type: "string" },
               authorId: { type: "string" },
               publishDate: { type: "string" },
               title: { type: "string" },
               content: { type: "string" },
             },
-            required: ["id", "authorId", "publishDate", "title", "content"],
+            required: ["blogId", "authorId", "publishDate", "title", "content"],
           },
         },
       },
@@ -59,7 +59,7 @@ const getBlogSchema = {
   params: {
     type: "object",
     properties: {
-      blogId: { type: "integer" },
+      blogId: { type: "string" },
     },
     required: ["blogId"],
   },
@@ -68,10 +68,10 @@ const getBlogSchema = {
       type: "object",
       properties: {
         title: { type: "string" },
-        author: { type: "string" },
+        authorId: { type: "string" },
         content: { type: "string" },
       },
-      required: ["title", "author", "content"],
+      required: ["title", "authorId", "content"],
     },
   },
 };
@@ -80,7 +80,7 @@ const updateBlogSchema = {
   params: {
     type: "object",
     properties: {
-      blogId: { type: "integer" },
+      blogId: { type: "string" },
     },
     required: ["blogId"],
   },
@@ -93,7 +93,7 @@ const deleteBlogSchema = {
   params: {
     type: "object",
     properties: {
-      blogId: { type: "integer" },
+      blogId: { type: "string" },
     },
     required: ["blogId"],
   },

@@ -107,7 +107,7 @@ async function handleUpdateBlog(req, reply) {
   }
 
   const result = await this.sequelize.blog.Blog.update(newData, {
-    where: { id: blogId },
+    where: { blogId },
   });
 
   if (result[0] === 0) {
@@ -134,7 +134,7 @@ async function handleDeleteBlog(req, reply) {
   }
 
   const result = await this.sequelize.blog.Blog.destroy({
-    where: { id: blogId },
+    where: { blogId },
   });
 
   if (result === 0) {

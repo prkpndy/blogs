@@ -4,25 +4,24 @@ GET http://localhost:3000/api/v1/blogs?offset=0
 
 ### GET one blog
 
-GET http://localhost:3000/api/v1/blogs/19
+GET http://localhost:3000/api/v1/blogs/b3b7dc78-23cb-451c-85d5-1d6841b270d8
 
 ### ADD a new blog
 
 POST http://localhost:3000/api/v1/blogs
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjY4NCwiZXhwIjoxNzEyMjQ2Mjg0fQ.aqkPPeZmsurBLJyMBl8I04pw-ZaGsjj8djv9x1seMmQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0ODU3MiwiZXhwIjoxNzEyMjUyMTcyfQ.150PToncs6tyjbnl4Plluz94jQc1zffpm2mk1gbgAzI
 
 {
-  "title": "This blog is added through API",
-  "author": "Prakhar Pandey",
+  "title": "This blog is added through API 22",
   "content": "I am writing this blog through REST API"
 }
 
 ### UPDATE a blog
 
-PATCH http://localhost:3000/api/v1/blogs/20
+PATCH http://localhost:3000/api/v1/blogs/b3b7dc78-23cb-451c-85d5-1d6841b270d8
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjIzOCwiZXhwIjoxNzEyMjQ1ODM4fQ.Ge4Gp5rd-D_XoFdrpY3d0cz6p9QEko_P3iOpLKG7SnQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0ODU3MiwiZXhwIjoxNzEyMjUyMTcyfQ.150PToncs6tyjbnl4Plluz94jQc1zffpm2mk1gbgAzI
 
 {
   "title": "I have changed the title through REST API"
@@ -30,5 +29,5 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5
 
 ### DELETE a blog
 
-DELETE http://localhost:3000/api/v1/blogs/18
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjIzOCwiZXhwIjoxNzEyMjQ1ODM4fQ.Ge4Gp5rd-D_XoFdrpY3d0cz6p9QEko_P3iOpLKG7SnQ
+DELETE http://localhost:3000/api/v1/blogs/b3b7dc78-23cb-451c-85d5-1d6841b270d8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0ODU3MiwiZXhwIjoxNzEyMjUyMTcyfQ.150PToncs6tyjbnl4Plluz94jQc1zffpm2mk1gbgAzI

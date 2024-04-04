@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for Blog app",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "prod": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sequelize:blog:migrate": "sequelize --env blog db:migrate",
+    "sequelize:blog:migrate:undo": "sequelize --env blog db:migrate:undo",
+    "sequelize:blog:seed:all": "sequelize --env blog db:seed:all"
+  },
+  "author": "Prakhar Pandey",
+  "license": "ISC",
+  "devDependencies": {
+    "csv-parse": "^5.5.5",
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.0",
+    "pino-pretty": "^11.0.0",
+    "prettier": "^3.2.5",
+    "sequelize-cli": "^6.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "fastify-plugin": "^4.5.1",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.2"
+  }
+}

@@ -44,12 +44,11 @@ const addBlogSchema = {
   body: {
     type: "object",
     properties: {
-      id: { type: "integer" },
       title: { type: "string" },
       author: { type: "string" },
       content: { type: "string" },
     },
-    required: ["id", "title", "author", "content"],
+    required: ["title", "author", "content"],
   },
   response: {
     200: standardResponse,

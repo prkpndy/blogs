@@ -30,9 +30,9 @@ async function handleGetBlogs(req, reply) {
 
   if (all) {
     searchObject[Op.or] = [
-      (searchObject.content = { [Op.iLike]: `%${all}%` }),
-      (searchObject.title = { [Op.iLike]: `%${all}%` }),
-      (searchObject.author = { [Op.iLike]: `%${all}%` }),
+      { content: { [Op.iLike]: `%${all}%` } },
+      { title: { [Op.iLike]: `%${all}%` } },
+      { author: { [Op.iLike]: `%${all}%` } },
     ];
   } else {
     if (content) {
@@ -79,7 +79,7 @@ async function handleAddBlog(req, reply) {
 async function handleGetBlog(req, reply) {
   const blogId = req.params.blogId;
 
-  const data = this.sequelize.blog.Blog.findByPk(blogId);
+  const data = await this.sequelize.blog.Blog.findByPk(blogId);
 
   if (data) {
     return data.toJSON();
@@ -97,12 +97,13 @@ async function handleUpdateBlog(req, reply) {
   const blogId = req.params.blogId;
   const newData = req.body;
 
-  // TODO: Check the result format
   const result = await this.sequelize.blog.Blog.update(newData, {
     where: { id: blogId },
   });
 
-  console.log(result);
+  if (result[0] === 0) {
+    return reply.status(404).send({ message: "Blog not found" });
+  }
 
   return { message: "Blog updated successfully" };
 }
@@ -115,12 +116,13 @@ async function handleUpdateBlog(req, reply) {
 async function handleDeleteBlog(req, reply) {
   const blogId = req.params.blogId;
 
-  // TODO: Check the result format
   const result = await this.sequelize.blog.Blog.destroy({
     where: { id: blogId },
   });
 
-  console.log(result);
+  if (result === 0) {
+    return reply.status(404).send({ message: "Blog not found" });
+  }
 
   return { message: "Blog deleted successfully" };
 }

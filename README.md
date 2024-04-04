@@ -14,6 +14,8 @@ This is a simple RESTful API for getting, adding, updating and deleting blogs. I
 - PATCH `/api/v1/blog/:blogId` - This will update the specified blog. The request accepts a JSON body containing the details of the fields to be updated.
 - DELETE `/api/v1/blog/:blogId` - This will delete the specified blog.
 
+In addition to this I have written code to migrate the models to a Postgres database. I have also written the code to populate the database with some initial values. The data is present in `./database/data/blog/blogs.csv`.
+
 # Dependencies
 
 The code depends majorly on the following libraries:
@@ -34,5 +36,7 @@ To test the code:
   - DB_PASSWORD
   - DB_HOST
   - DB_PORT
-- Run the code using `nom run dev`
-- Test the code using the files in the `tests` folder. I have not done automated testing.
+- Create tables using `npm run sequelize:blog:migrate`
+- Populate the tables using `npm run sequelize:blog:seed:all`
+- Run the code using `npm run dev`
+- Test the code using the files in the `tests` directory. I have not done automated testing.

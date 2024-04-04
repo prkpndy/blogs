@@ -1,1 +1,31 @@
-GET http://localhost:3000/api/v1/blogs
+## GET all blogs
+
+GET http://localhost:3000/api/v1/blogs?offset=1
+
+### GET one blog
+
+GET http://localhost:3000/api/v1/blogs/19
+
+### ADD a new blog
+
+POST http://localhost:3000/api/v1/blogs
+Content-Type: application/json
+
+{
+  "title": "This blog is added through API",
+  "author": "Prakhar Pandey",
+  "content": "I am writing this blog through REST API"
+}
+
+### UPDATE a blog
+
+PATCH http://localhost:3000/api/v1/blogs/20
+Content-Type: application/json
+
+{
+  "title": "I have changed the title through REST API"
+}
+
+### DELETE a blog
+
+DELETE http://localhost:3000/api/v1/blogs/18

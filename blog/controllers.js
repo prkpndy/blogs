@@ -24,7 +24,6 @@ function blogController(fastify, options, done) {
     "/",
     {
       schema: getBlogsSchema,
-      preHandler: [],
     },
     handleGetBlogs
   );
@@ -32,7 +31,7 @@ function blogController(fastify, options, done) {
     "/",
     {
       schema: addBlogSchema,
-      preHandler: [],
+      preHandler: [fastify.authenticateUser],
     },
     handleAddBlog
   );
@@ -41,7 +40,6 @@ function blogController(fastify, options, done) {
     "/:blogId",
     {
       schema: getBlogSchema,
-      preHandler: [],
     },
     handleGetBlog
   );
@@ -49,7 +47,7 @@ function blogController(fastify, options, done) {
     "/:blogId",
     {
       schema: updateBlogSchema,
-      preHandler: [],
+      preHandler: [fastify.authenticateUser],
     },
     handleUpdateBlog
   );
@@ -57,7 +55,7 @@ function blogController(fastify, options, done) {
     "/:blogId",
     {
       schema: deleteBlogSchema,
-      preHandler: [],
+      preHandler: [fastify.authenticateUser],
     },
     handleDeleteBlog
   );

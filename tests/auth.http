@@ -1,0 +1,31 @@
+### Register
+
+POST http://localhost:3000/api/v1/register
+Content-Type: application/json
+
+{
+  "email": "mufasa@gmail.com",
+  "name": "Mufasa",
+  "occupation": "Comedy",
+  "password": "HelloWorld@123"
+}
+
+### Login
+
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+  "email": "prkpandey942@gmail.com",
+  "password": "HelloWorld@123"
+}
+
+### Get all Authors
+GET http://localhost:3000/api/v1/authors
+
+### Get Author
+
+GET http://localhost:3000/api/v1/authors/33e2f019-7dec-42c3-b089-5c2728d5b382
+
+### Make Admin
+GET http://localhost:3000/api/v1/admin/33e2f019-7dec-42c3-b089-5c2728d5b382

@@ -3,6 +3,7 @@ require("dotenv").config();
 const Fastify = require("fastify");
 
 const blogController = require("./blog/controllers");
+const authController = require("./auth/controllers");
 
 const fastify = Fastify({
   logger:
@@ -24,18 +25,22 @@ const fastify = Fastify({
   },
 });
 
+// plugins
+fastify.register(require("./plugins/userAuthentication"));
+
 // database
 fastify.register(require("./plugins/fastifySequelize"));
 
 // request decorators
-// fastify.decorateRequest("state", null);
-// fastify.decorateRequest("authInfo", null);
+fastify.decorateRequest("isAdmin", null);
+fastify.decorateRequest("authorId", null);
 
 // hooks
 fastify.addHook("onRequest", require("./hooks/cors"));
 
-// Controllers
+// controllers
 fastify.register(blogController, { prefix: "/api/v1/blogs" });
+fastify.register(authController, { prefix: "/api/v1" });
 
 try {
   fastify.listen({ port: 3000 });

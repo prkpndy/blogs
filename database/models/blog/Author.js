@@ -1,39 +1,43 @@
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
-    "Blog",
+    "Author",
     {
-      blogId: {
+      authorId: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      authorId: {
-        type: DataTypes.UUID,
+      name: {
+        type: DataTypes.TEXT,
         allowNull: false,
-        onDelete: "CASCADE",
-        references: {
-          model: "authors",
-          key: "authorId",
-        },
       },
-      publishDate: {
+      occupation: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      joinData: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
-      title: {
-        type: DataTypes.TEXT,
+      isAdmin: {
+        type: DataTypes.BOOLEAN,
         allowNull: false,
-      },
-      content: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+        defaultValue: false,
       },
     },
     {
       sequelize,
-      tableName: "blogs",
+      tableName: "authors",
       schema: "public",
       timestamps: false,
     }

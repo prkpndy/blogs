@@ -28,11 +28,12 @@ const getBlogsSchema = {
             type: "object",
             properties: {
               id: { type: "integer" },
+              authorId: { type: "string" },
+              publishDate: { type: "string" },
               title: { type: "string" },
-              author: { type: "string" },
               content: { type: "string" },
             },
-            required: ["id", "title", "author", "content"],
+            required: ["id", "authorId", "publishDate", "title", "content"],
           },
         },
       },
@@ -45,10 +46,9 @@ const addBlogSchema = {
     type: "object",
     properties: {
       title: { type: "string" },
-      author: { type: "string" },
       content: { type: "string" },
     },
-    required: ["title", "author", "content"],
+    required: ["title", "content"],
   },
   response: {
     200: standardResponse,

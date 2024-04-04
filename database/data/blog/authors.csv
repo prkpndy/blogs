@@ -1,0 +1,7 @@
+"authorId","name","occupation","email","password","joinData","isAdmin"
+"0a102378-42e4-42fd-b6c3-4d559a0b4fba","Bull Shark","Killing","bullshark@gmail.com","$2b$10$vMjYvJz0k2boYRjbe73E.uqAesSwlad3RJyWa6t1IHWNRYRXkaiC2","2024-04-04 15:53:14.831+00",False
+"13791aa7-1709-4a01-9479-c01b95a5ea0b","Jelly Fish","Swimming","jellyfish@gmail.com","$2b$10$Fm2rXyPDHlEoa0cVkzGYROm9r7CT96pbqfHUv8BcSkHdt/VLzvBI.","2024-04-04 15:52:50.585+00",False
+"33e2f019-7dec-42c3-b089-5c2728d5b382","Prakhar Pandey","Developer","prkpandey942@gmail.com","$2b$10$LmRAx9Jq5lGuvKexlLpCt.9td6gLy.64fAAwXRJMVKBIN7uIsXwIW","2024-04-04 14:42:58.184+00",True
+"4e9b0cdc-3679-43cc-8d5d-9d6f2d6fd9de","Mufasa","Comedy","mufasa@gmail.com","$2b$10$6j/lRp7iA0KF.COMjiKAGuC9Qy7bZq1.NpaWgOhkiYgrQyumxZ/X2","2024-04-04 15:54:37.022+00",False
+"5167b563-b6de-4b43-9ea0-2c0f5fe7748a","Baghira","Comedy","baghira@gmail.com","$2b$10$dBoITjSEytaAy5sLnMQ45ueZjHouCamS8ljThtiAgYumORTzg9ymO","2024-04-04 15:54:13.281+00",False
+"a8512f00-1a13-4e93-8989-e2e27ec7b151","Red Panda","Sleeping","redpanda@gmail.com","$2b$10$b/Ri1ekW5Otw.6AK4leHb.c4c6VCQT9FJxyyMsf8BjBGrnNUH3dtK","2024-04-04 15:53:38.418+00",False

@@ -5,6 +5,7 @@ const { blog } = require("../../models");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    await Promise.all([blog.Author.sync()]);
     await Promise.all([blog.Blog.sync()]);
   },
 

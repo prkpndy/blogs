@@ -10,20 +10,19 @@ async function handleGetBlogs(req, reply) {
    * You can have the following 4 query parameters:
    * 1. content
    * 2. title
-   * 3. author
-   * 4. all
+   * 3. all
    *
    * If you have specified all, nothing else will be considered
    * If you have specified nothing, the first PAGINATION_LIMIT blogs will be served
    */
   const PAGINATION_LIMIT = 10;
 
-  const orderBy = req.query.order ?? "id";
+  const orderBy = req.query.order ?? "blogId";
   const offset = req.query.offset ?? 0;
 
   const content = req.query.content;
   const title = req.query.title;
-  const author = req.query.author;
+  // const author = req.query.author;
   const all = req.query.all;
 
   const searchObject = {};
@@ -32,7 +31,7 @@ async function handleGetBlogs(req, reply) {
     searchObject[Op.or] = [
       { content: { [Op.iLike]: `%${all}%` } },
       { title: { [Op.iLike]: `%${all}%` } },
-      { author: { [Op.iLike]: `%${all}%` } },
+      // { author: { [Op.iLike]: `%${all}%` } },
     ];
   } else {
     if (content) {
@@ -41,9 +40,9 @@ async function handleGetBlogs(req, reply) {
     if (title) {
       searchObject.title = { [Op.iLike]: `%${title}%` };
     }
-    if (author) {
-      searchObject.author = { [Op.iLike]: `%${author}%` };
-    }
+    // if (author) {
+    //   searchObject.author = { [Op.iLike]: `%${author}%` };
+    // }
   }
 
   const result = await this.sequelize.blog.Blog.findAll({
@@ -64,9 +63,11 @@ async function handleGetBlogs(req, reply) {
  * @param {import("fastify").FastifyReply} reply Reply object
  */
 async function handleAddBlog(req, reply) {
+  const authorId = req.authorId;
+
   const blogData = req.body;
 
-  await this.sequelize.blog.Blog.create(blogData);
+  await this.sequelize.blog.Blog.create({ authorId, ...blogData });
 
   return { message: "Blog successfully created" };
 }
@@ -94,8 +95,16 @@ async function handleGetBlog(req, reply) {
  * @param {import("fastify").FastifyReply} reply Reply object
  */
 async function handleUpdateBlog(req, reply) {
+  const authorId = req.authorId;
+
   const blogId = req.params.blogId;
   const newData = req.body;
+
+  const blog = await this.sequelize.blog.Blog.findByPk(blogId);
+
+  if (blog.authorId !== authorId && req.isAdmin === false) {
+    return reply.status(404).send({ message: "Blog not found" });
+  }
 
   const result = await this.sequelize.blog.Blog.update(newData, {
     where: { id: blogId },
@@ -114,7 +123,15 @@ async function handleUpdateBlog(req, reply) {
  * @param {import("fastify").FastifyReply} reply Reply object
  */
 async function handleDeleteBlog(req, reply) {
+  const authorId = req.authorId;
+
   const blogId = req.params.blogId;
+
+  const blog = await this.sequelize.blog.Blog.findByPk(blogId);
+
+  if (blog.authorId !== authorId && req.isAdmin === false) {
+    return reply.status(404).send({ message: "Blog not found" });
+  }
 
   const result = await this.sequelize.blog.Blog.destroy({
     where: { id: blogId },

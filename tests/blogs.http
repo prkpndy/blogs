@@ -1,6 +1,6 @@
 ## GET all blogs
 
-GET http://localhost:3000/api/v1/blogs?offset=1
+GET http://localhost:3000/api/v1/blogs?offset=0
 
 ### GET one blog
 
@@ -10,6 +10,7 @@ GET http://localhost:3000/api/v1/blogs/19
 
 POST http://localhost:3000/api/v1/blogs
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjY4NCwiZXhwIjoxNzEyMjQ2Mjg0fQ.aqkPPeZmsurBLJyMBl8I04pw-ZaGsjj8djv9x1seMmQ
 
 {
   "title": "This blog is added through API",
@@ -21,6 +22,7 @@ Content-Type: application/json
 
 PATCH http://localhost:3000/api/v1/blogs/20
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjIzOCwiZXhwIjoxNzEyMjQ1ODM4fQ.Ge4Gp5rd-D_XoFdrpY3d0cz6p9QEko_P3iOpLKG7SnQ
 
 {
   "title": "I have changed the title through REST API"
@@ -29,3 +31,4 @@ Content-Type: application/json
 ### DELETE a blog
 
 DELETE http://localhost:3000/api/v1/blogs/18
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6IjMzZTJmMDE5LTdkZWMtNDJjMy1iMDg5LTVjMjcyOGQ1YjM4MiIsImlhdCI6MTcxMjI0MjIzOCwiZXhwIjoxNzEyMjQ1ODM4fQ.Ge4Gp5rd-D_XoFdrpY3d0cz6p9QEko_P3iOpLKG7SnQ
